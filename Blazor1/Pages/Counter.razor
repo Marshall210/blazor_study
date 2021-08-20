@@ -1,0 +1,33 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<PageListTable Pages="otherPages"/>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    //changed_table
+    List<Page> otherPages;
+    
+    protected override void OnInitialized()
+    {
+        otherPages = new List<Page>()
+        {    
+            new Page()
+            {
+                Name = "Change1 for counter",
+                Level = "junior",
+                ReleaseDate = new DateTime(2021, 08, 19)
+            }
+        };
+    }        
+}

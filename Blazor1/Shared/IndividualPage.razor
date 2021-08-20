@@ -1,0 +1,61 @@
+@if (!IsTable)//если не таблица то выводим так 
+{
+    <div class="row text-center alert alert-info">
+        <div class="col">
+            <p>@Page.Name</p>
+            <p>@Page.Level</p>
+            <p>@Page.ReleaseDate.ToString("yy/MM/dd")</p>
+        </div>
+    </div>
+    
+    @if (DisplayButtons)
+    {    
+        <div class="row">
+        <div class="col offset-3">
+            <button class="btn btn-danger" @onclick="Delete">Delete</button> @*кнопка для удаления блока*@
+        </div>
+            <div class="col">
+                @if (message != null)
+                {
+                    <span class="text-danger">@message</span>
+                    message = null; // чтобы никуда больше не выводилось
+                }
+            </div>
+
+        </div>
+    } 
+}
+else //если таблица то...  
+{    //одинарная страница
+    <tr>
+        <td>@Page.Name</td>
+        <td>@Page.Level</td>
+        <td>@Page.ReleaseDate.ToString("dd.MM.yyyy")</td>
+        <td>
+            @if (DisplayButtons) //если кнопка активна то выводиться если нет то не выводится
+            {
+                <button class="btn btn-danger" @onclick="Delete">Delete</button>
+                @if (message != null)
+                {
+                    <span class="text-danger pl-3">@message</span>
+                    message = null; // чтобы никуда больше не выводилось
+                }
+            }
+        </td>
+    </tr>
+}
+@code {
+    [Parameter] public Page Page { get; set; }//получают данные с параметра, тип и свойства одинаковы(только с большой буквы)
+    [Parameter] public bool IsTable { get; set; }//как переменная _решает таблица это или нет
+
+    [Parameter] public bool DisplayButtons { get; set; } = false;
+
+    string message;
+
+    void Delete() //Метод обработки (воид ничего не возвращает а пустые скобки что ничего не принимает)
+    {
+        //Delete logic...
+        message = $"Page {Page.Name} deleted!";
+    } 
+    
+}
