@@ -105,7 +105,7 @@ using Blazor1.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
+#line 25 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
        
     private int currentCount = 0;
 
@@ -113,6 +113,17 @@ using Blazor1.Pages;
     {
         currentCount++;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     //changed_table
     List<Page> otherPages;
     
@@ -127,7 +138,7 @@ using Blazor1.Pages;
                 ReleaseDate = new DateTime(2021, 08, 19)
             }
         };
-    }        
+    }     */   
 
 #line default
 #line hidden

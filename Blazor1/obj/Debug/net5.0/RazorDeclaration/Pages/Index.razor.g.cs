@@ -116,6 +116,9 @@ using Microsoft.VisualBasic;
        
 
     List<Page> pages;
+
+    Random rnd;
+    Page onePageToShow;
     
     protected override void OnInitialized()
     {
@@ -141,7 +144,31 @@ using Microsoft.VisualBasic;
             },
         };
 
-    }    
+        rnd = new Random(DateTime.Now.Millisecond);
+        onePageToShow = pages[rnd.Next(0, pages.Count)];
+    }
+
+    void ShowNewPage()
+    {
+        onePageToShow = SwitchPage();
+    }
+    
+    Page SwitchPage()
+    {
+        Page tempPage;
+
+        if (pages.Count >= 2)
+        {
+            int iterator = rnd.Next(0, pages.Count);
+            tempPage = pages[iterator];
+        }
+        else if (pages.Count == 1)
+            tempPage = pages[0];
+        else
+            return new Page() {Name = "No items in array", ReleaseDate = DateTime.Now};
+        
+        return tempPage;
+    }
 
 #line default
 #line hidden

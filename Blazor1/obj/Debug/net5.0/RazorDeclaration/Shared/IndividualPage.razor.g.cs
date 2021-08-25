@@ -96,6 +96,13 @@ using Blazor1.Pages;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
+using System.Reflection.Metadata;
+
+#line default
+#line hidden
+#nullable disable
     public partial class IndividualPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -104,21 +111,20 @@ using Blazor1.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
+#line 50 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
        
-    [Parameter] public Page Page { get; set; }//получают данные с параметра, тип и свойства одинаковы(только с большой буквы)
-    [Parameter] public bool IsTable { get; set; }//как переменная _решает таблица это или нет
 
-    [Parameter] public bool DisplayButtons { get; set; } = false;
+    [Parameter]public Page Page { get; set; } //получают данные с параметра, тип и свойства одинаковы(только с большой буквы)
+    [Parameter]public bool IsTable { get; set; } //как переменная _решает таблица это или нет
 
-    string message;
+    [Parameter]public bool DisplayButtons { get; set; } = false;
+    [Parameter]public EventCallback<Page> DeletePage { get; set; }
+    [Parameter]public EventCallback SwitchPage { get; set; }
 
-    void Delete() //Метод обработки (воид ничего не возвращает а пустые скобки что ничего не принимает)
-    {
-        //Delete logic...
-        message = $"Page {Page.Name} deleted!";
-    } 
-    
+
+
+
+        
 
 #line default
 #line hidden

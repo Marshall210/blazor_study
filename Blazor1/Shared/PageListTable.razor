@@ -5,7 +5,7 @@
             <th>Name</th>    
             <th>Level</th>
             <th>ReleaseDate</th>
-            <th><input type="checkbox" @onchange="(() => displayButtons = !displayButtons)"></th>
+            <th><input type="checkbox" @bind="displayButtons"></th> @*@bind="displayButtons"></th> @onchange="(() => displayButtons = !displayButtons)"*@
         </tr>
         </thead>
         <tbody>
@@ -15,19 +15,19 @@
         }
         else if (Pages.Count == 0)//если отсутствует какая либо инфа
         {
-            <tr> No items in array</tr>
+        <tr> No items in array</tr>
         }
-        else 
+        else
         {
-            @foreach (var item in Pages)
-            {
-                <IndividualPage Page="item" IsTable="true" DisplayButtons="displayButtons"/>
+        @foreach (var item in Pages)
+        {
+            <IndividualPage Page="item" IsTable="true" DisplayButtons="displayButtons" DeletePage="DeleteThePage" />
               @*  <tr>
                     <td>@item.Name</td>
                     <td>@item.Level</td>
                     <td>@item.ReleaseDate.ToString("dd.MM.yyyy")</td>
                 </tr>*@
-            }
+        }
         }
         </tbody>
     </table>
@@ -38,6 +38,11 @@
     [Parameter] public List<Page> Pages { get; set; } //параметры должны быть публичными и pages долно быть с большой буквы
 
     bool displayButtons = false;
+
+    void DeleteThePage(Page page)
+    {
+        Pages.Remove(page);//удалить рядом столбик 
+    }
 }
 
 

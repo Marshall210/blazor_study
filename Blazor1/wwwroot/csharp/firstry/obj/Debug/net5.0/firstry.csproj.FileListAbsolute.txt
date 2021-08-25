@@ -1,0 +1,16 @@
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.exe
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.deps.json
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.runtimeconfig.json
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.runtimeconfig.dev.json
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.dll
+C:\Development\csharp\firstry\bin\Debug\net5.0\ref\firstry.dll
+C:\Development\csharp\firstry\bin\Debug\net5.0\firstry.pdb
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.csproj.AssemblyReference.cache
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.AssemblyInfoInputs.cache
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.AssemblyInfo.cs
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.csproj.CoreCompileInputs.cache
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.dll
+C:\Development\csharp\firstry\obj\Debug\net5.0\ref\firstry.dll
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.pdb
+C:\Development\csharp\firstry\obj\Debug\net5.0\firstry.genruntimeconfig.cache

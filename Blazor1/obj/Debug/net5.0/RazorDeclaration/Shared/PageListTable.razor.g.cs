@@ -111,6 +111,11 @@ using Blazor1.Pages;
 
     bool displayButtons = false;
 
+    void DeleteThePage(Page page)
+    {
+        Pages.Remove(page);//удалить рядом столбик 
+    }
+
 #line default
 #line hidden
 #nullable disable
