@@ -96,14 +96,7 @@ using Blazor1.Pages;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 1 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
-using System.Reflection.Metadata;
-
-#line default
-#line hidden
-#nullable disable
-    public partial class PageListTable : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class GenericList<TItem> : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -111,17 +104,14 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
-       
+#line 33 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\GenericList.razor"
+      
 
-    [Parameter] public List<Page> Pages { get; set; } //параметры должны быть публичными и pages долно быть с большой буквы
-    
-    bool displayButtons = false;
+    [Parameter] public RenderFragment NullList { get; set; }
+    [Parameter] public RenderFragment EmptyList { get; set; }
+    [Parameter] public RenderFragment<TItem> ItemTemplate { get; set; }//возвращает тип TItem
+    [Parameter] public List<TItem> ListOfItems { get; set; }
 
-    void DeleteThePage(Page page)
-    {
-        Pages.Remove(page);//удалить рядом столбик 
-    }
 
 #line default
 #line hidden

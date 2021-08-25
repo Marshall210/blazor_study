@@ -1,3 +1,4 @@
+@using System.Reflection.Metadata
 <div class="table-responsive">
     <table class="table table-striped">
         <thead class="table-striped">
@@ -9,26 +10,11 @@
         </tr>
         </thead>
         <tbody>
-        @if (Pages == null)//если еще ничего не загрузилось
-        {
-            <tr>Loading data...</tr>
-        }
-        else if (Pages.Count == 0)//если отсутствует какая либо инфа
-        {
-        <tr> No items in array</tr>
-        }
-        else
-        {
-        @foreach (var item in Pages)
-        {
-            <IndividualPage Page="item" IsTable="true" DisplayButtons="displayButtons" DeletePage="DeleteThePage" />
-              @*  <tr>
-                    <td>@item.Name</td>
-                    <td>@item.Level</td>
-                    <td>@item.ReleaseDate.ToString("dd.MM.yyyy")</td>
-                </tr>*@
-        }
-        }
+        <GenericList ListOfItems="Pages">
+            <ItemTemplate Context="onepage">
+                <IndividualPage Page="onepage" IsTable="true" DisplayButtons="displayButtons" DeletePage="DeleteThePage" />
+            </ItemTemplate>
+        </GenericList>
         </tbody>
     </table>
 </div>
@@ -36,7 +22,7 @@
 @code {
 
     [Parameter] public List<Page> Pages { get; set; } //параметры должны быть публичными и pages долно быть с большой буквы
-
+    
     bool displayButtons = false;
 
     void DeleteThePage(Page page)

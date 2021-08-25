@@ -22,11 +22,12 @@
 
     List<Page> pages;
 
-    Random rnd;
+    Random rnd; 
     Page onePageToShow;
-    
-    protected override void OnInitialized()
+   
+    protected async override Task OnInitializedAsync()
     {
+        await Task.Delay(2000);
         pages = new List<Page>()
         {
             new Page()

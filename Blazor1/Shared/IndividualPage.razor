@@ -1,51 +1,50 @@
 @using System.Reflection.Metadata
-@if (!IsTable)//если не таблица то выводим так 
+@if (!IsTable && Page != null)//если не таблица то выводим так 
 {
     <div class="row text-center alert alert-info">
         <div class="col">
             <p>@Page.Name</p>
             <p>@Page.Level</p>
             <p>@Page.ReleaseDate.ToString("yy/MM/dd")</p>
+
+    
+            @if (DisplayButtons)
+            {    
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" @onclick="SwitchPage">Switch the page</button> @*кнопка для удаления блока*@
+                    </div>
+                </div>
+            } 
         </div>
     </div>
-    
-    @if (DisplayButtons)
-    {    
-        <div class="row">
-        <div class="col offset-3">
-            <button class="btn btn-danger" @onclick="SwitchPage">Delete</button> @*кнопка для удаления блока*@
-        </div>
-            <div class="col">
-               @* 101 выводит сообщение
-                @if (message != null)
-                {
-                    <span class="text-danger">@message</span>
-                    message = null; // чтобы никуда больше не выводилось
-                }*@
-            </div>
-
-        </div>
-    } 
-}
+        }
 else //если таблица то...  
 {    //одинарная страница
-    <tr>
-        <td>@Page.Name</td>
-        <td>@Page.Level</td>
-        <td>@Page.ReleaseDate.ToString("dd.MM.yyyy")</td>
-        <td>
-            @if (DisplayButtons) //если кнопка активна то выводиться если нет то не выводится
-            {
-                <button class="btn btn-danger" @onclick="(() => DeletePage.InvokeAsync(Page))">Delete</button>
-              @* 101 выводит сообщение
-                @if (message != null)
+    if (Page != null)
+    {
+        
+    
+        <tr>
+            <td>@Page.Name</td>
+            <td>@Page.Level</td>
+            <td>@Page.ReleaseDate.ToString("dd.MM.yyyy")</td>
+            <td>
+                @if (DisplayButtons) //если кнопка активна то выводиться если нет то не выводится
                 {
-                    <span class="text-danger pl-3">@message</span>
-                    message = null; // чтобы никуда больше не выводилось
-                } *@
-            }
-        </td>
-    </tr>
+                    <button class="btn btn-danger" @onclick="(() => DeletePage.InvokeAsync(Page))">Delete</button>
+                  @* 101 выводит сообщение
+                    @if (message != null)
+                    {
+                        <span class="text-danger pl-3">@message</span>
+                        message = null; // чтобы никуда больше не выводилось
+                    } *@
+                }
+            </td>
+   
+        </tr>
+    }
+    
 }
 @code {
 

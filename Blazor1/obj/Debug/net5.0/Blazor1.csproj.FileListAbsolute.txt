@@ -58,3 +58,5 @@ C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\RazorDeclaration\S
 C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\Razor\Shared\PageListTable.razor.g.cs
 C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\RazorDeclaration\Shared\IndividualPage.razor.g.cs
 C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\Razor\Shared\IndividualPage.razor.g.cs
+C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\RazorDeclaration\Shared\GenericList.razor.g.cs
+C:\Users\tymch\RiderProjects\Blazor1\Blazor1\obj\Debug\net5.0\Razor\Shared\GenericList.razor.g.cs

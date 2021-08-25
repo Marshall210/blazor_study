@@ -111,7 +111,7 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
+#line 49 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
        
 
     [Parameter]public Page Page { get; set; } //получают данные с параметра, тип и свойства одинаковы(только с большой буквы)
