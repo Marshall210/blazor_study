@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazor1.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -26,8 +27,14 @@ namespace Blazor1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor(); 
-         }
+            services.AddServerSideBlazor();
+            //services.AddScoped(); при первом запросе создает экземпляр к которому и ссылаются
+            services.AddSingleton<SingletonService>(); //на протяжении сессии пользуемся одним и  тем же services.AddTransient() //при обращении создает новый экземпляр 
+            services.AddTransient<TrinsientService>(); //при каждоом обращении будет создаваться новый обтект
+
+            services.AddTransient<IRepository, MockPageRepository>();
+        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

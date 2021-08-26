@@ -105,13 +105,16 @@ using Blazor1.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
+#line 37 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
        
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
+        
+        singleton.Value = currentCount;
+        transient.Value = currentCount;
     }
     
     
@@ -143,6 +146,8 @@ using Blazor1.Pages;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TrinsientService transient { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SingletonService singleton { get; set; }
     }
 }
 #pragma warning restore 1591

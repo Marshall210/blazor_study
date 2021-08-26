@@ -1,4 +1,9 @@
 ﻿@page "/"
+
+@inject Blazor1.Repository.IRepository repository
+
+
+@*@inject HttpClient client*@
 @using Microsoft.VisualBasic
 
 <div class="row">
@@ -18,6 +23,12 @@
 
 <IndividualPage Page="onePageToShow" IsTable="false" DisplayButtons="true" SwitchPage="ShowNewPage"/>
 
+<div class="row">
+    <div class="col tab-content"></div>
+    <button @onclick="AddNewPage" class="btn btn-success">Add new page</button>
+</div>
+
+
 @code {
 
     List<Page> pages;
@@ -27,28 +38,8 @@
    
     protected async override Task OnInitializedAsync()
     {
-        await Task.Delay(2000);
-        pages = new List<Page>()
-        {
-            new Page()
-            {
-                Name = "My first project",
-                Level = "junior",
-                ReleaseDate = new DateTime(2021, 08, 19)
-            },
-            new Page()
-            {
-                Name = "My 108 project",
-                Level = "Still junior",
-                ReleaseDate = new DateTime(2021, 08, 30)
-            },
-            new Page()
-            {
-                Name = "My 1009 project",
-                Level = "Also junior",
-                ReleaseDate = new DateTime(2021, 09, 15)
-            },
-        };
+    //await Task.Delay(2000);
+        pages = repository.GetAllPages();
 
         rnd = new Random(DateTime.Now.Millisecond);
         onePageToShow = pages[rnd.Next(0, pages.Count)];
@@ -74,5 +65,10 @@
             return new Page() {Name = "No items in array", ReleaseDate = DateTime.Now};
         
         return tempPage;
+    }
+
+    void AddNewPage()
+    {
+        pages.Add(new Page() { Name = "Page for test", Level = "╯︿╰", ReleaseDate = DateTime.Today });
     }
 } 

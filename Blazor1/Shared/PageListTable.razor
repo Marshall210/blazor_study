@@ -29,6 +29,26 @@
     {
         Pages.Remove(page);//удалить рядом столбик 
     }
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"1. OnInitialized(). Pages count: {Pages?.Count}.");// вопрос проверяет на нулл
+    } 
+
+    protected override void OnParametersSet()// переносит/выводит все параметры
+    {
+        Console.WriteLine($"2. OnParametersSet(). Pages count: {Pages?.Count}.");// вопрос проверяет на нулл
+    }
+
+    protected override void OnAfterRender(bool firstRender)//первый ли раз страница отрисовуется если вся страница то тру а если переисовывается только часть страници то фолс
+    {
+        Console.WriteLine($"3. OnAfterRender(bool firstRender). Does it first render: {firstRender}.");
+    }
+
+    protected override bool ShouldRender()//дает или отключает возможность перерисовки компонента
+    {
+        return true;//изменения разрешены
+    }
 }
 
 

@@ -97,7 +97,7 @@ using Blazor1.Pages;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Index.razor"
+#line 7 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Index.razor"
 using Microsoft.VisualBasic;
 
 #line default
@@ -112,7 +112,7 @@ using Microsoft.VisualBasic;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Index.razor"
+#line 32 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Index.razor"
        
 
     List<Page> pages;
@@ -122,28 +122,8 @@ using Microsoft.VisualBasic;
    
     protected async override Task OnInitializedAsync()
     {
-        await Task.Delay(2000);
-        pages = new List<Page>()
-        {
-            new Page()
-            {
-                Name = "My first project",
-                Level = "junior",
-                ReleaseDate = new DateTime(2021, 08, 19)
-            },
-            new Page()
-            {
-                Name = "My 108 project",
-                Level = "Still junior",
-                ReleaseDate = new DateTime(2021, 08, 30)
-            },
-            new Page()
-            {
-                Name = "My 1009 project",
-                Level = "Also junior",
-                ReleaseDate = new DateTime(2021, 09, 15)
-            },
-        };
+    //await Task.Delay(2000);
+        pages = repository.GetAllPages();
 
         rnd = new Random(DateTime.Now.Millisecond);
         onePageToShow = pages[rnd.Next(0, pages.Count)];
@@ -171,9 +151,15 @@ using Microsoft.VisualBasic;
         return tempPage;
     }
 
+    void AddNewPage()
+    {
+        pages.Add(new Page() { Name = "Page for test", Level = "╯︿╰", ReleaseDate = DateTime.Today });
+    }
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazor1.Repository.IRepository repository { get; set; }
     }
 }
 #pragma warning restore 1591
