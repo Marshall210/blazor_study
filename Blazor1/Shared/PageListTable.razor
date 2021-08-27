@@ -15,6 +15,12 @@
                 <IndividualPage Page="onepage" IsTable="true" DisplayButtons="displayButtons" DeletePage="DeleteThePage" />
             </ItemTemplate>
         </GenericList>
+        
+        
+        
+        <Confirmation @ref="confirmation" onCancel="OnCancel" onConfirm="OnConfirm">
+            <div class="table-danger">Do you wish to delete @pageToBeDeleted.Name?</div>
+        </Confirmation>
         </tbody>
     </table>
 </div>
@@ -27,8 +33,34 @@
 
     void DeleteThePage(Page page)
     {
-        Pages.Remove(page);//удалить рядом столбик 
+        pageToBeDeleted = page;
+        confirmation.Show();
+    //Pages.Remove(page);//удалить рядом столбик 
     }
+
+    
+    Confirmation confirmation; // это как ссылка где всем параметрам в Confirmation.razor мы присваиваем confirmation
+
+    Page pageToBeDeleted;
+    
+    void OnConfirm()
+    {
+        Pages.Remove(pageToBeDeleted);//удалить рядом столбик (pagetobelited)
+        confirmation.Hide();  
+        pageToBeDeleted = null;
+    }
+
+    void OnCancel()
+    {
+        confirmation.Hide();
+        pageToBeDeleted = null;
+    }
+    
+    
+    
+    
+    
+    
 
     protected override void OnInitialized()
     {

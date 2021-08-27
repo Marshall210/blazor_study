@@ -19,7 +19,7 @@
 </div>
 @*<PageListTable/>  вызываем нашу таблицу *@
 
-<PageListTable Pages="pages" />
+<PageListTable Pages="pages" /> @*@ref="pageList" получает все методы публичные и приватные *@
 
 <IndividualPage Page="onePageToShow" IsTable="false" DisplayButtons="true" SwitchPage="ShowNewPage"/>
 
@@ -35,7 +35,9 @@
 
     Random rnd; 
     Page onePageToShow;
-   
+
+   // PageListTable pageList;  // создали приватное поле pageList для хранения инфы 
+
     protected async override Task OnInitializedAsync()
     {
     //await Task.Delay(2000);
@@ -69,6 +71,7 @@
 
     void AddNewPage()
     {
+       // pageList.DoSomething();
         pages.Add(new Page() { Name = "Page for test", Level = "╯︿╰", ReleaseDate = DateTime.Today });
     }
 } 

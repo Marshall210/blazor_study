@@ -97,13 +97,13 @@ using Blazor1.Pages;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
+#line 1 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\Confirmation.razor"
 using System.Reflection.Metadata;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class PageListTable : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Confirmation : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -111,63 +111,22 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
+#line 33 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\Confirmation.razor"
        
 
-    [Parameter] public List<Page> Pages { get; set; } //параметры должны быть публичными и pages долно быть с большой буквы
-    
-    bool displayButtons = false;
+     bool displayConfirmation = false;
+     
+     [Parameter] public string Title { get; set; } = "Confirm"; // присвоили значение подтверждения
+     [Parameter] public RenderFragment ChildContent { get; set; }
+     [Parameter] public EventCallback onConfirm { get; set; }
+     [Parameter] public EventCallback onCancel { get; set; }
+     
+     //cоздаем два публичных метода 
 
-    void DeleteThePage(Page page)
-    {
-        pageToBeDeleted = page;
-        confirmation.Show();
-    //Pages.Remove(page);//удалить рядом столбик 
-    }
+     public void Show() => displayConfirmation = true;
+     public void Hide() => displayConfirmation = false;
 
-    
-    Confirmation confirmation; // это как ссылка где всем параметрам в Confirmation.razor мы присваиваем confirmation
 
-    Page pageToBeDeleted;
-    
-    void OnConfirm()
-    {
-        Pages.Remove(pageToBeDeleted);//удалить рядом столбик (pagetobelited)
-        confirmation.Hide();  
-        pageToBeDeleted = null;
-    }
-
-    void OnCancel()
-    {
-        confirmation.Hide();
-        pageToBeDeleted = null;
-    }
-    
-    
-    
-    
-    
-    
-
-    protected override void OnInitialized()
-    {
-        Console.WriteLine($"1. OnInitialized(). Pages count: {Pages?.Count}.");// вопрос проверяет на нулл
-    } 
-
-    protected override void OnParametersSet()// переносит/выводит все параметры
-    {
-        Console.WriteLine($"2. OnParametersSet(). Pages count: {Pages?.Count}.");// вопрос проверяет на нулл
-    }
-
-    protected override void OnAfterRender(bool firstRender)//первый ли раз страница отрисовуется если вся страница то тру а если переисовывается только часть страници то фолс
-    {
-        Console.WriteLine($"3. OnAfterRender(bool firstRender). Does it first render: {firstRender}.");
-    }
-
-    protected override bool ShouldRender()//дает или отключает возможность перерисовки компонента
-    {
-        return true;//изменения разрешены
-    }
 
 #line default
 #line hidden

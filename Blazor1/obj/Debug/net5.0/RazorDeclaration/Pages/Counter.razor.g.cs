@@ -104,50 +104,6 @@ using Blazor1.Pages;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 37 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
-       
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-        
-        singleton.Value = currentCount;
-        transient.Value = currentCount;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    //changed_table
-    List<Page> otherPages;
-    
-    protected override void OnInitialized()
-    {
-        otherPages = new List<Page>()
-        {    
-            new Page()
-            {
-                Name = "Change1 for counter",
-                Level = "junior",
-                ReleaseDate = new DateTime(2021, 08, 19)
-            }
-        };
-    }     */   
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TrinsientService transient { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SingletonService singleton { get; set; }
     }
 }
 #pragma warning restore 1591

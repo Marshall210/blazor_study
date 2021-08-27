@@ -119,7 +119,9 @@ using Microsoft.VisualBasic;
 
     Random rnd; 
     Page onePageToShow;
-   
+
+   // PageListTable pageList;  // создали приватное поле pageList для хранения инфы 
+
     protected async override Task OnInitializedAsync()
     {
     //await Task.Delay(2000);
@@ -153,6 +155,7 @@ using Microsoft.VisualBasic;
 
     void AddNewPage()
     {
+       // pageList.DoSomething();
         pages.Add(new Page() { Name = "Page for test", Level = "╯︿╰", ReleaseDate = DateTime.Today });
     }
 
