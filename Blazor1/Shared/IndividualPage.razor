@@ -1,4 +1,5 @@
 @using System.Reflection.Metadata
+@using System.Data
 @if (!IsTable && Page != null)//если не таблица то выводим так 
 {
     <div class="row text-center alert alert-info">
@@ -16,6 +17,14 @@
                     </div>
                 </div>
             } 
+            @if (Page.Name.Equals("My 108 project") && AppStyle.WitcherWords != null)
+            {
+                <div class="row mt-3">
+                    <div class="col alert alert-light text-center">
+                        @AppStyle.WitcherWords[rnd.Next(0, AppStyle.WitcherWords.Count)]
+                    </div>
+                </div>
+            }
         </div>
     </div>
         }
@@ -56,7 +65,8 @@ else //если таблица то...
     [Parameter]public EventCallback SwitchPage { get; set; }
 
 
-
+    [CascadingParameter] public AppStyle AppStyle { get; set; }
+    Random rnd = new Random(DateTime.Now.Millisecond);
 
         @*101   выводит сообщение когда удаляешь чтото 
         string message;

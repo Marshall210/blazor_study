@@ -103,6 +103,17 @@ using Blazor1.Pages;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 31 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\MainLayout.razor"
+       
+    // string Color = "blue";
+    // string Size = "65px";
+
+    AppStyle appStyle = new AppStyle(); //создали экземпляр
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

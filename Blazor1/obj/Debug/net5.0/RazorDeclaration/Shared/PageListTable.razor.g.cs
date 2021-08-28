@@ -111,7 +111,7 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
+#line 41 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\PageListTable.razor"
        
 
     [Parameter] public List<Page> Pages { get; set; } //параметры должны быть публичными и pages долно быть с большой буквы
@@ -143,6 +143,13 @@ using System.Reflection.Metadata;
         pageToBeDeleted = null;
     }
     
+    [CascadingParameter]public AppStyle     AppStyle { get; set; }
+    string CurrentTableStyle = "table-striped";
+
+    void ChangeTableStyle(ChangeEventArgs currentItem)
+    {
+        CurrentTableStyle = currentItem.Value.ToString();
+    }
     
     
     

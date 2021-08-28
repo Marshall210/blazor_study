@@ -103,6 +103,13 @@ using System.Reflection.Metadata;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
+using System.Data;
+
+#line default
+#line hidden
+#nullable disable
     public partial class IndividualPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +118,7 @@ using System.Reflection.Metadata;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
+#line 58 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Shared\IndividualPage.razor"
        
 
     [Parameter]public Page Page { get; set; } //получают данные с параметра, тип и свойства одинаковы(только с большой буквы)
@@ -122,7 +129,8 @@ using System.Reflection.Metadata;
     [Parameter]public EventCallback SwitchPage { get; set; }
 
 
-
+    [CascadingParameter] public AppStyle AppStyle { get; set; }
+    Random rnd = new Random(DateTime.Now.Millisecond);
 
         
 

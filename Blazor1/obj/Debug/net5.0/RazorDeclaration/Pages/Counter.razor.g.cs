@@ -96,6 +96,13 @@ using Blazor1.Pages;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\tymch\RiderProjects\Blazor1\Blazor1\Pages\Counter.razor"
+using System.Drawing;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {
